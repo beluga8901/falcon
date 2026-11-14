@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon Markets - India's Next-Gen Trading Platform | SEBI Reg. Broker</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        deepNavy: '#050914',
+                        obsidianCard: '#0A101D',
+                        emeraldTrust: '#10B981',
+                        saffronGold: '#F59E0B',
+                        electricBlue: '#3B82F6',
+                        borderGlass: 'rgba(255, 255, 255, 0.08)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050914;
+            color: #F1F5F9;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+        .glass-card {
+            background: rgba(10, 16, 29, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(5, 9, 20, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .glow-gold {
+            box-shadow: 0 0 35px rgba(245, 158, 11, 0.25);
+        }
+        .glow-emerald {
+            box-shadow: 0 0 35px rgba(16, 185, 129, 0.35);
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-ticker {
+            display: flex;
+            width: max-content;
+            animation: ticker 32s linear infinite;
+        }
+        .animate-ticker:hover {
+            animation-play-state: paused;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.8); }
+        }
+        .btn-pulse {
+            animation: pulseGlow 2.5s infinite;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050914; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-deepNavy text-slate-100 selection:bg-emeraldTrust selection:text-white">
+
+    <!-- TOP TICKER BAR -->
+    <div class="bg-slate-950 border-b border-slate-800/80 text-[11px] py-2 px-4 overflow-hidden relative z-50">
+        <div class="animate-ticker flex items-center space-x-10 text-slate-300 font-medium">
+            <div class="flex items-center space-x-2">
+                <span class="text-slate-400 font-semibold">SENSEX:</span>
+                <span class="text-white font-bold">72,472.33</span>
+                <span class="text-emeraldTrust flex items-center"><i class="fa-solid fa-arrow-trend-up mr-1"></i>+879.09 (+1.23%)</span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="text-slate-400 font-semibold">BANK NIFTY:</span>
+                <span class="text-white font-bold">55,256.65</span>
+                <span class="text-emeraldTrust flex items-center"><i class="fa-solid fa-arrow-trend-up mr-1"></i>+741.60 (+1.36%)</span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="text-slate-400 font-semibold">RELIANCE:</span>
+                <span class="text-white font-bold">₹1,284.50</span>
+                <span class="text-emeraldTrust flex items-center"><i class="fa-solid fa-arrow-trend-up mr-1"></i>+1.85%</span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="text-slate-400 font-semibold">TCS:</span>
+                <span class="text-white font-bold">₹2,163.00</span>
+                <span class="text-emeraldTrust flex items-center"><i class="fa-solid fa-arrow-trend-up mr-1"></i>+4.23%</span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="text-slate-400 font-semibold">INFOSYS:</span>
+                <span class="text-white font-bold">₹1,024.05</span>
+                <span class="text-emeraldTrust flex items-center"><i class="fa-solid fa-arrow-trend-up mr-1"></i>+3.01%</span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="text-slate-400 font-semibold">NIFTY 50:</span>
+                <span class="text-white font-bold">22,520.45</span>
+                <span class="text-emeraldTrust flex items-center"><i class="fa-solid fa-arrow-trend-up mr-1"></i>+288.65 (+1.30%)</span>
+            </div>
+            <!-- Seamless Loop Duplicate -->
+            <div class="flex items-center space-x-2">
+                <span class="text-slate-400 font-semibold">SENSEX:</span>
+                <span class="text-white font-bold">72,472.33</span>
+                <span class="text-emeraldTrust flex items-center"><i class="fa-solid fa-arrow-trend-up mr-1"></i>+879.09 (+1.23%)</span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="text-slate-400 font-semibold">BANK NIFTY:</span>
+                <span class="text-white font-bold">55,256.65</span>
+                <span class="text-emeraldTrust flex items-center"><i class="fa-solid fa-arrow-trend-up mr-1"></i>+741.60 (+1.36%)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="glass-nav sticky top-0 z-40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-saffronGold via-amber-500 to-emeraldTrust flex items-center justify-center glow-gold group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-chart-line text-slate-950 text-xl font-black"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-black text-2xl tracking-tight text-white flex items-center">
+                        Falcon <span class="text-saffronGold ml-1.5">Markets</span>
+                    </span>
+                    <span class="text-[9px] text-slate-400 tracking-wider uppercase font-bold flex items-center">
+                        <i class="fa-solid fa-shield-halved text-emeraldTrust mr-1"></i> SEBI REG. BROKER
+                    </span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#funding" class="text-saffronGold font-bold flex items-center">
+                    <span class="w-2 h-2 rounded-full bg-saffronGold animate-ping mr-2"></span>
+                    ₹10,000 Free Funding
+                </a>
+                <a href="#watchlist" class="hover:text-saffronGold transition-colors">Live Markets</a>
+                <a href="#features" class="hover:text-saffronGold transition-colors">Features</a>
+                <a href="#students" class="hover:text-saffronGold transition-colors">Student Wall</a>
+                <a href="#downloads-hub" class="hover:text-saffronGold transition-colors">Download App</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <a href="https://github.com/beluga8901/falconmarkets/raw/main/FalconMark.apk" download="FalconMark.apk"
+                   class="inline-flex items-center space-x-2.5 px-5 py-2.5 rounded-xl bg-emeraldTrust hover:bg-emerald-400 text-slate-950 font-extrabold text-sm btn-pulse transition-all shadow-lg">
+                    <i class="fa-brands fa-android text-lg"></i>
+                    <span>Download APK</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-slate-900/90 border border-saffronGold/30 text-slate-200 text-xs font-semibold shadow-xl">
+                        <i class="fa-solid fa-fire text-saffronGold"></i>
+                        <span>Claim <strong class="text-white">₹10,000 Free Trading Fund</strong> on Sign Up & KYC Verification</span>
+                    </div>
+
+                    <h1 class="font-heading font-black text-4xl sm:text-6xl tracking-tight leading-[1.1]">
+                        Trade with <br>
+                        <span class="bg-gradient-to-r from-saffronGold via-amber-300 to-emeraldTrust bg-clip-text text-transparent">
+                            ₹10,000 Free Margin Capital
+                        </span>
+                    </h1>
+
+                    <p class="text-slate-300 text-lg sm:text-xl font-normal max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        India's premier SEBI-registered broker app gives you zero risk trading capital upfront. Keep 100% of your profits on equity and F&O trades.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="https://github.com/beluga8901/falconmarkets/raw/main/FalconMark.apk" download="FalconMark.apk"
+                           class="w-full sm:w-auto inline-flex items-center justify-center space-x-3 px-8 py-4 rounded-2xl bg-emeraldTrust hover:bg-emerald-400 text-slate-950 font-black text-base btn-pulse shadow-2xl transition-all">
+                            <i class="fa-brands fa-android text-2xl"></i>
+                            <div class="text-left">
+                                <div class="text-[10px] uppercase font-bold tracking-wider text-slate-900">Instant Claim & Download</div>
+                                <div class="text-sm">Get ₹10,000 Free APK</div>
+                            </div>
+                        </a>
+
+                        <a href="#funding" class="w-full sm:w-auto inline-flex items-center justify-center space-x-3 px-6 py-4 rounded-2xl glass-card hover:bg-slate-800 text-slate-200 font-bold text-base transition-all border border-slate-700">
+                            <i class="fa-solid fa-circle-info text-saffronGold text-lg"></i>
+                            <span>How Funding Works</span>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-black font-heading text-saffronGold">₹10,000</div>
+                            <div class="text-xs text-slate-400 mt-1">Free Trading Margin</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-black font-heading text-white">0%</div>
+                            <div class="text-xs text-slate-400 mt-1">Equity Delivery Fees</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-black font-heading text-emeraldTrust">4.9<i class="fa-solid fa-star text-saffronGold text-lg ml-1"></i></div>
+                            <div class="text-xs text-slate-400 mt-1">App Store Rating</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phone Mockup with ₹10k Fund Banner -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-[330px] rounded-[42px] bg-slate-950 border-[8px] border-slate-800 shadow-2xl p-4 overflow-hidden glow-gold">
+                        <div class="absolute top-2 left-1/2 -translate-x-1/2 w-28 h-5 bg-slate-800 rounded-full z-20 flex items-center justify-center">
+                            <div class="w-3 h-3 rounded-full bg-slate-900 mr-2"></div>
+                            <div class="w-2 h-2 rounded-full bg-saffronGold/40"></div>
+                        </div>
+
+                        <div class="pt-6 pb-4 space-y-4 text-xs">
+                            <div class="flex justify-between items-center px-1">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-7 h-7 rounded-lg bg-saffronGold flex items-center justify-center font-black text-slate-950">FM</div>
+                                    <span class="font-bold text-sm text-white">Falcon Markets</span>
+                                </div>
+                                <span class="bg-emeraldTrust/20 text-emeraldTrust px-2.5 py-0.5 rounded-full text-[10px] font-extrabold flex items-center">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emeraldTrust animate-ping mr-1"></span> LIVE
+                                </span>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-gradient-to-br from-amber-500/20 to-emeraldTrust/20 border border-saffronGold">
+                                <div class="text-saffronGold text-[11px] font-extrabold uppercase tracking-wide">Welcome Funding Bonus</div>
+                                <div class="text-2xl font-black font-heading text-white mt-1">₹10,000.<span class="text-sm">00</span></div>
+                                <p class="text-[10px] text-slate-300 mt-1">Credited instantly to your trading ledger upon fast PAN/Aadhaar KYC.</p>
+                            </div>
+
+                            <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold text-slate-200">SENSEX Live Watch</span>
+                                    <span class="text-[10px] text-emeraldTrust font-extrabold">+1.23%</span>
+                                </div>
+                                <div class="text-lg font-black text-white">72,472.33</div>
+                                <div class="text-[10px] text-slate-400 mt-1">NSE & BSE Direct Feed Active</div>
+                            </div>
+
+                            <a href="https://github.com/beluga8901/falconmarkets/raw/main/FalconMark.apk" download="FalconMark.apk" 
+                               class="block w-full py-3 rounded-xl bg-gradient-to-r from-saffronGold to-amber-500 text-slate-950 text-center font-black text-xs shadow-lg hover:opacity-90">
+                                Claim ₹10,000 & Start Trading
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ₹10,000 FUNDING & FREE PAGE SECTION -->
+    <section id="funding" class="py-20 bg-slate-950/80 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-saffronGold/10 border border-saffronGold/30 text-saffronGold text-xs font-bold mb-4">
+                    <i class="fa-solid fa-gift"></i>
+                    <span>Free Funding & Zero Brokerage Page</span>
+                </div>
+                <h2 class="font-heading font-black text-3xl sm:text-5xl text-white">How to Get Your ₹10,000 Trading Fund in 3 Steps</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-4">We empower new Indian investors with risk-free capital so you can practice live execution without spending your own savings.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-3xl relative border border-saffronGold/30">
+                    <div class="w-12 h-12 rounded-2xl bg-saffronGold text-slate-950 font-black text-xl flex items-center justify-center mb-6 shadow-lg">01</div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-2">Download Falcon APK</h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Download our secure official Android application package directly from GitHub repository.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl relative border border-emeraldTrust/30">
+                    <div class="w-12 h-12 rounded-2xl bg-emeraldTrust text-slate-950 font-black text-xl flex items-center justify-center mb-6 shadow-lg">02</div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-2">Complete Digital KYC</h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Verify your PAN card, Aadhaar OTP, and bank account securely under SEBI guidelines within 2 minutes.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl relative border border-blue-500/30">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500 text-slate-950 font-black text-xl flex items-center justify-center mb-6 shadow-lg">03</div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-2">₹10,000 Credited Instantly</h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Your trading ledger receives ₹10,000 free margin capital to trade stocks, index options, and commodities immediately.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="https://github.com/beluga8901/falconmarkets/raw/main/FalconMark.apk" download="FalconMark.apk" 
+                   class="inline-flex items-center space-x-3 px-8 py-4 rounded-2xl bg-saffronGold hover:bg-amber-400 text-slate-950 font-black text-base shadow-2xl transition-all">
+                    <i class="fa-solid fa-wallet text-xl"></i>
+                    <span>Claim Your ₹10,000 Free Fund Now</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE MARKETS SECTION -->
+    <section id="watchlist" class="py-20 bg-deepNavy">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <div class="text-saffronGold font-bold text-xs uppercase tracking-wider mb-2 flex items-center">
+                        <i class="fa-solid fa-chart-simple mr-2"></i> Real-Time Indian Exchange Feeds
+                    </div>
+                    <h2 class="font-heading font-black text-3xl sm:text-4xl text-white">Live Market Prices & Heatmap</h2>
+                </div>
+                <div class="mt-4 md:mt-0 flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 rounded-xl text-xs font-bold bg-emeraldTrust/20 text-emeraldTrust border border-emeraldTrust/30 flex items-center">
+                        <span class="w-2 h-2 rounded-full bg-emeraldTrust animate-ping mr-2"></span> NSE / BSE Connected
+                    </span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Reliance -->
+                <div class="glass-card p-6 rounded-2xl hover:border-saffronGold/50 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-900/30 border border-blue-500/20 flex items-center justify-center font-black text-blue-400 text-lg">REL</div>
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-white">Reliance Industries</h3>
+                                <span class="text-xs text-slate-400">RELIANCE • NSE</span>
+                            </div>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-emeraldTrust/10 text-emeraldTrust text-xs font-bold border border-emeraldTrust/20">+1.85%</span>
+                    </div>
+                    <div class="flex justify-between items-end pt-4 border-t border-slate-800/80">
+                        <div>
+                            <div class="text-xs text-slate-400">Live Market Price</div>
+                            <div class="text-2xl font-black font-heading text-white mt-0.5">₹1,284.50</div>
+                        </div>
+                        <a href="https://github.com/beluga8901/falconmarkets/raw/main/FalconMark.apk" download="FalconMark.apk" class="px-4 py-2 rounded-xl bg-saffronGold hover:bg-amber-400 text-slate-950 text-xs font-bold shadow-md">Trade with ₹10k</a>
+                    </div>
+                </div>
+
+                <!-- TCS -->
+                <div class="glass-card p-6 rounded-2xl hover:border-saffronGold/50 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 rounded-2xl bg-purple-900/30 border border-purple-500/20 flex items-center justify-center font-black text-purple-400 text-lg">TCS</div>
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-white">Tata Consultancy</h3>
+                                <span class="text-xs text-slate-400">TCS • NSE</span>
+                            </div>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-emeraldTrust/10 text-emeraldTrust text-xs font-bold border border-emeraldTrust/20">+4.23%</span>
+                    </div>
+                    <div class="flex justify-between items-end pt-4 border-t border-slate-800/80">
+                        <div>
+                            <div class="text-xs text-slate-400">Live Market Price</div>
+                            <div class="text-2xl font-black font-heading text-white mt-0.5">₹2,163.00</div>
+                        </div>
+                        <a href="https://github.com/beluga8901/falconmarkets/raw/main/FalconMark.apk" download="FalconMark.apk" class="px-4 py-2 rounded-xl bg-saffronGold hover:bg-amber-400 text-slate-950 text-xs font-bold shadow-md">Trade with ₹10k</a>
+                    </div>
+                </div>
+
+                <!-- INFY -->
+                <div class="glass-card p-6 rounded-2xl hover:border-saffronGold/50 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 rounded-2xl bg-teal-900/30 border border-teal-500/20 flex items-center justify-center font-black text-teal-400 text-lg">INFY</div>
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-white">Infosys Limited</h3>
+                                <span class="text-xs text-slate-400">INFY • NSE</span>
+                            </div>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-emeraldTrust/10 text-emeraldTrust text-xs font-bold border border-emeraldTrust/20">+3.01%</span>
+                    </div>
+                    <div class="flex justify-between items-end pt-4 border-t border-slate-800/80">
+                        <div>
+                            <div class="text-xs text-slate-400">Live Market Price</div>
+                            <div class="text-2xl font-black font-heading text-white mt-0.5">₹1,024.05</div>
+                        </div>
+                        <a href="https://github.com/beluga8901/falconmarkets/raw/main/FalconMark.apk" download="FalconMark.apk" class="px-4 py-2 rounded-xl bg-saffronGold hover:bg-amber-400 text-slate-950 text-xs font-bold shadow-md">Trade with ₹10k</a>
+                    </div>
+                </div>
+
+                <!-- HDFC -->
+                <div class="glass-card p-6 rounded-2xl hover:border-saffronGold/50 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 rounded-2xl bg-sky-900/30 border border-sky-500/20 flex items-center justify-center font-black text-sky-400 text-lg">HDFC</div>
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-white">HDFC Bank Ltd</h3>
+                                <span class="text-xs text-slate-400">HDFCBANK • NSE</span>
+                            </div>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-emeraldTrust/10 text-emeraldTrust text-xs font-bold border border-emeraldTrust/20">+1.62%</span>
+                    </div>
+                    <div class="flex justify-between items-end pt-4 border-t border-slate-800/80">
+                        <div>
+                            <div class="text-xs text-slate-400">Live Market Price</div>
+                            <div class="text-2xl font-black font-heading text-white mt-0.5">₹1,648.00</div>
+                        </div>
+                        <a href="https://github.com/beluga8901/falconmarkets/raw/main/FalconMark.apk" download="FalconMark.apk" class="px-4 py-2 rounded-xl bg-saffronGold hover:bg-amber-400 text-slate-950 text-xs font-bold shadow-md">Trade with ₹10k</a>
+                    </div>
+                </div>
+
+                <!-- ICICI -->
+                <div class="glass-card p-6 rounded-2xl hover:border-saffronGold/50 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-900/30 border border-amber-500/20 flex items-center justify-center font-black text-amber-400 text-lg">ICICI</div>
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-white">ICICI Bank Ltd</h3>
+                                <span class="text-xs text-slate-400">ICICIBANK • NSE</span>
+                            </div>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-emeraldTrust/10 text-emeraldTrust text-xs font-bold border border-emeraldTrust/20">+2.10%</span>
+                    </div>
+                    <div class="flex justify-between items-end pt-4 border-t border-slate-800/80">
+                        <div>
+                            <div class="text-xs text-slate-400">Live Market Price</div>
+                            <div class="text-2xl font-black font-heading text-white mt-0.5">₹1,121.00</div>
+                        </div>
+                        <a href="https://github.com/beluga8901/falconmarkets/raw/main/FalconMark.apk" download="FalconMark.apk" class="px-4 py-2 rounded-xl bg-saffronGold hover:bg-amber-400 text-slate-950 text-xs font-bold shadow-md">Trade with ₹10k</a>
+                    </div>
+                </div>
+
+                <!-- NIFTY 50 INDEX -->
+                <div class="glass-card p-6 rounded-2xl hover:border-saffronGold/50 transition-all bg-gradient-to-br from-emeraldTrust/10 to-slate-900">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 rounded-2xl bg-emeraldTrust/20 text-emeraldTrust flex items-center justify-center font-black text-lg"><i class="fa-solid fa-chart-line"></i></div>
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-white">NIFTY 50 Index</h3>
+                                <span class="text-xs text-slate-400">NSE BENCHMARK</span>
+                            </div>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-emeraldTrust/20 text-emeraldTrust text-xs font-bold">+1.30%</span>
+                    </div>
+                    <div class="flex justify-between items-end pt-4 border-t border-slate-800/80">
+                        <div>
+                            <div class="text-xs text-slate-400">Index Value</div>
+                            <div class="text-2xl font-black font-heading text-white mt-0.5">22,520.45</div>
+                        </div>
+                        <a href="https://github.com/beluga8901/falconmarkets/raw/main/FalconMark.apk" download="FalconMark.apk" class="px-4 py-2 rounded-xl bg-emeraldTrust hover:bg-emerald-400 text-slate-950 text-xs font-bold shadow-md">Trade Options</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STUDENT WALL SECTION -->
+    <section id="students" class="py-20 bg-slate-950/60 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-saffronGold text-xs font-semibold mb-3">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Student Wall • Funded Accounts</span>
+                    </div>
+                    <h2 class="font-heading font-black text-3xl sm:text-4xl text-white">Traders Growing with ₹10,000 Free Capital</h2>
+                    <p class="text-slate-400 text-sm mt-2">Verified earnings from students across Indian colleges using our ₹10,000 promotional trading program.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Student 1 -->
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full bg-saffronGold text-slate-950 flex items-center justify-center font-bold text-base">AV</div>
+                        <div>
+                            <h3 class="font-bold text-white text-base">Aakash V.</h3>
+                            <div class="text-xs text-slate-400">Delhi University • Funded Trader</div>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2 text-xs">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Starting Fund:</span>
+                            <span class="text-saffronGold font-bold">₹10,000 (Free)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Current Profit P&L:</span>
+                            <span class="text-emeraldTrust font-extrabold text-sm">+₹1,42,850</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student 2 -->
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full bg-emeraldTrust text-slate-950 flex items-center justify-center font-bold text-base">PS</div>
+                        <div>
+                            <h3 class="font-bold text-white text-base">Priya Sharma</h3>
+                            <div class="text-xs text-slate-400">IIT Bombay • Funded Trader</div>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2 text-xs">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Starting Fund:</span>
+                            <span class="text-saffronGold font-bold">₹10,000 (Free)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Current Profit P&L:</span>
+                            <span class="text-emeraldTrust font-extrabold text-sm">+₹88,400</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student 3 -->
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full bg-electricBlue text-white flex items-center justify-center font-bold text-base">RM</div>
+                        <div>
+                            <h3 class="font-bold text-white text-base">Rohan Mehta</h3>
+                            <div class="text-xs text-slate-400">CA Student • Ahmedabad</div>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2 text-xs">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Starting Fund:</span>
+                            <span class="text-saffronGold font-bold">₹10,000 (Free)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400">Current Profit P&L:</span>
+                            <span class="text-emeraldTrust font-extrabold text-sm">+₹2,15,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOWNLOAD OPTIONS HUB -->
+    <section id="downloads-hub" class="py-20 bg-slate-950/90 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-emeraldTrust/10 border border-emeraldTrust/20 text-emeraldTrust text-xs font-bold mb-4">
+                <i class="fa-solid fa-download"></i>
+                <span>Official GitHub Release Hub • Version 4.5.2</span>
+            </div>
+            
+            <h2 class="font-heading font-black text-3xl sm:text-5xl text-white mb-3">Download Falcon Markets App</h2>
+            <p class="text-slate-400 text-sm max-w-xl mx-auto mb-12">Install the broker app directly from GitHub repository to receive your instant ₹10,000 trading credit and live market pricing feeds.</p>
+
+            <!-- Main APK Download Box -->
+            <div class="glass-card p-8 rounded-3xl max-w-4xl mx-auto mb-8 border border-emeraldTrust/30 glow-emerald">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center space-x-5 text-left">
+                        <div class="w-16 h-16 rounded-2xl bg-saffronGold flex items-center justify-center text-slate-950 text-3xl font-black">
+                            <i class="fa-brands fa-android"></i>
+                        </div>
+                        <div>
+                            <span class="bg-emeraldTrust/20 text-emeraldTrust px-2.5 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wider">OFFICIAL REPO APK WITH ₹10K FUNDING</span>
+                            <h3 class="font-heading font-extrabold text-2xl text-white mt-1">FalconMark.apk</h3>
+                            <div class="text-xs text-slate-400 mt-1 flex items-center space-x-3">
+                                <span><i class="fa-solid fa-hard-drive mr-1"></i>GitHub Repository Release (4.75 MB)</span>
+                                <span>•</span>
+                                <span class="text-emeraldTrust font-bold"><i class="fa-solid fa-shield-check mr-1"></i>SEBI Compliant</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-auto">
+                        <a href="https://github.com/beluga8901/falconmarkets/raw/main/FalconMark.apk" download="FalconMark.apk" 
+                           class="w-full md:w-auto px-8 py-4 rounded-2xl bg-emeraldTrust hover:bg-emerald-400 text-slate-950 font-black text-sm shadow-xl flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Download APK & Claim ₹10k</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-xl bg-saffronGold flex items-center justify-center text-slate-950 font-black text-sm">FM</div>
+                        <span class="font-heading font-black text-xl text-white">Falcon <span class="text-saffronGold">Markets</span></span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">India's technology-driven stock broker providing free trading funding, zero brokerage delivery, and ultra-low latency execution.</p>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-white text-sm mb-4">Quick Links</h5>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#funding" class="hover:text-white">₹10,000 Funding</a></li>
+                        <li><a href="#watchlist" class="hover:text-white">Live Markets</a></li>
+                        <li><a href="#students" class="hover:text-white">Student Wall</a></li>
+                        <li><a href="#downloads-hub" class="hover:text-white">Download App</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-white text-sm mb-4">SEBI Compliance</h5>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li>SEBI Reg. No: INZ000293831</li>
+                        <li>NSE Member Code: 90281</li>
+                        <li>BSE Member Code: 6712</li>
+                        <li>CDSL DP ID: 12089300</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-white text-sm mb-4">Support</h5>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><i class="fa-solid fa-phone text-saffronGold mr-2"></i>1800-209-9080 (Toll Free)</li>
+                        <li><i class="fa-solid fa-envelope text-saffronGold mr-2"></i>support@falconmarkets.in</li>
+                        <li><i class="fa-solid fa-building text-saffronGold mr-2"></i>BKC, Mumbai 400051</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-slate-900 text-center text-xs text-slate-500">
+                <p>© 2026 Falcon Markets India. All Rights Reserved. SEBI Registered Stock Broker.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
